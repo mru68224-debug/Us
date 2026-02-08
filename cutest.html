@@ -6,106 +6,96 @@
 <title>Cutest</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* BASE */
-html, body {
-  width: 100%;
-  min-height: 100%;
-  font-family: 'Poppins', sans-serif;
-  background: #0f0f11;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family:'Poppins', sans-serif;
+  background:#0f0f11;
+  color:#fff;
+  display:flex; justify-content:center; align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
 /* CARD */
 .card {
-  max-width: 420px;
-  width: 100%;
-  background: linear-gradient(120deg, #ff6f91, #ff9eb5, #ffd1dd);
-  border-radius: 28px;
-  overflow: hidden;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 18px 55px rgba(255,111,145,0.45);
-  position: relative;
-  color: #fff;
+  background: rgba(20,20,25,0.85);
+  backdrop-filter: blur(8px);
+  border-radius:24px;
+  padding:26px 22px;
+  max-width:420px;
+  text-align:center;
+  box-shadow:0 12px 40px rgba(255,111,145,0.3);
 }
 
 /* FLOWER FRAME IMAGE */
 .flower-frame {
   position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  margin-bottom: 20px;
-  padding: 6px;
-  background: linear-gradient(135deg, #ff9eb5, #ff6f91);
+  margin-bottom:22px;
+  border:6px solid transparent;
+  border-image: url('https://i.ibb.co/fFnGgNx/flower-frame.png') 30 stretch;
+  border-radius:16px;
+  overflow:hidden;
 }
 
 .flower-frame img {
-  width: 100%;
-  display: block;
-  border-radius: 18px;
+  width:100%;
+  display:block;
+  border-radius:12px;
 }
 
-/* TEXT CARD */
-.text-card {
-  background: rgba(0,0,0,0.45);
-  padding: 16px;
-  border-radius: 22px;
-  margin-top: 12px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #fff;
-  letter-spacing: 0.3px;
+/* TEXT */
+.subtitle {
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:22px;
 }
 
 /* POETIC LINES */
-.text-card p {
-  margin-bottom: 10px;
+.message-text {
+  font-size:16px;
+  line-height:1.6;
+  color:#ffe6ee;
+  letter-spacing:0.3px;
 }
 
-/* OPTIONAL BUTTON */
-.button-link {
-  display: block;
-  margin-top: 16px;
-  padding: 14px;
-  border-radius: 999px;
+/* LINKS BUTTON STYLE */
+.card a {
+  display:block;
+  margin:12px 0;
+  padding:14px;
+  border-radius:24px;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
   background: linear-gradient(135deg,#ff9eb5,#ff6f91);
-  color: #111;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.15s ease;
+  box-shadow:0 6px 20px rgba(255,111,145,0.5);
+  transition:0.25s;
 }
-
-.button-link:active {
-  transform: scale(0.96);
-}
+.card a:hover { transform:scale(1.03); }
 </style>
 </head>
 <body>
 
 <div class="card">
   <div class="flower-frame">
-    <img src="her2.jpg" alt="Her Cutest Pic">
+    <img src="her2.jpg" alt="Her">
   </div>
 
-  <div class="text-card">
-    <p>Every smile you share</p>
-    <p>Turns the simplest moment into a treasure.</p>
-    <p>In your eyes, I find the quiet magic of love,</p>
-    <p>And in your laughter, the world feels alive.</p>
-  </div>
+  <p class="subtitle">Cutest of all</p>
 
-  <a href="index.html" class="button-link">Back to Home</a>
+  <p class="message-text">
+    Every glance of yours<br>
+    Makes my heart skip a beat.<br>
+    You are my joy, my softest calm,<br>
+    My world is brighter when you smile.
+  </p>
+
+  <a href="index.html">Back to Home</a>
 </div>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
