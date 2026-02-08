@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Prettiest</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prettiest</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.flower-frame {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 10px;
+  background: url('flower-frame.png') no-repeat center/cover; /* flower frame image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flower-frame img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+</style>
 </head>
-<body class="page beige">
+<body>
 
-<img src="her1.jpg">
-<p>The prettiest soul I know 🌸</p>
-
-<audio autoplay loop>
-  <source src="music.mp3">
-</audio>
+<div class="flower-frame">
+  <img src="her-pic.jpg" alt="Her Pic">
+</div>
 
 </body>
-</html>
+  </html>
