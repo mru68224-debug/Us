@@ -22,12 +22,21 @@ body {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  overflow: hidden;
+  padding: 10px;
+  background: conic-gradient(
+    #ff6f91 0deg 45deg,
+    #ff9eb5 45deg 90deg,
+    #ffd1dd 90deg 135deg,
+    #ff9eb5 135deg 180deg,
+    #ff6f91 180deg 225deg,
+    #ff9eb5 225deg 270deg,
+    #ffd1dd 270deg 315deg,
+    #ff9eb5 315deg 360deg
+  );
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 40px rgba(255,111,145,0.5);
-  background: url('flower-frame.png') center/cover no-repeat;
+  animation: spin 12s linear infinite;
 }
 
 .flower-frame img {
@@ -35,8 +44,7 @@ body {
   height: 90%;
   object-fit: cover;
   border-radius: 50%;
-  position: relative;
-  z-index: 1;
+  border: 6px solid rgba(255,255,255,0.3);
 }
 
 .text-overlay {
@@ -50,8 +58,12 @@ body {
   color: #fff;
   font-weight: 700;
   font-size: 18px;
-  z-index: 2;
   cursor: default;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
 </style>
 </head>
