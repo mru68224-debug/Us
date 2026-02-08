@@ -5,36 +5,234 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Us</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- CSS -->
 <style>
 /* RESET */
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body { width:100%; height:100%; font-family:'Poppins', sans-serif; background:#0f0f11; overflow-x:hidden; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* CARD BASE */
-.card { max-width:420px; margin:32px auto; padding:26px 22px 30px; border-radius:28px; position:relative; overflow:hidden; text-align:center; color:#fff; 
-  background:linear-gradient(120deg,#ff6f91,#ff9eb5,#ffd1dd,#ff9eb5,#ff6f91); background-size:400% 400%; animation:FLOW 10s ease infinite; box-shadow:0 18px 55px rgba(255,111,145,0.4); }
-.card::before { content:""; position:absolute; inset:0; background:rgba(12,12,15,0.75); backdrop-filter:blur(5px); z-index:0; }
-.card > * { position:relative; z-index:1; }
-@keyframes FLOW { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+/* BASE */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f11;
+  overflow-x: hidden;
+}
 
-/* VIDEO FRAME */
-.flower-frame { position:relative; padding:4px; border-radius:22px; margin-bottom:22px; overflow:hidden; }
-.flower-frame::before { content:""; position:absolute; inset:-30%; background:linear-gradient(90deg,transparent,#ff9eb5,#2e2e2e,#ff6f91,transparent); animation:TRAIN 14s linear infinite; }
-.flower-frame::after { content:""; position:absolute; inset:4px; background:#000; border-radius:18px; z-index:1; }
-@keyframes TRAIN { 0%{transform:translateX(-40%) rotate(0deg);} 100%{transform:translateX(40%) rotate(360deg);} }
+/* ================= CARD ================= */
+.card {
+  max-width: 420px;
+  margin: 32px auto;
+  padding: 26px 22px 30px;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
 
-/* VIDEO + POSTER */
-.video-poster { width:100%; height:260px; object-fit:cover; border-radius:18px; position:absolute; top:0; left:0; z-index:2; }
-.flower-frame video { width:100%; height:260px; object-fit:cover; border-radius:18px; position:relative; z-index:3; background:#000; opacity:0; transition:opacity 0.5s ease; transform:translateZ(0); backface-visibility:hidden; }
+  background: linear-gradient(
+    120deg,
+    #ff6f91,
+    #ff9eb5,
+    #ffd1dd,
+    #ff9eb5,
+    #ff6f91
+  );
+  background-size: 500% 500%;
+  animation: FLOW 12s linear infinite;
 
-/* TEXT */
-.subtitle { font-size:17px; color:#f4f4f4; margin-bottom:22px; letter-spacing:0.3px; }
+  box-shadow: 0 18px 55px rgba(255,111,145,0.45);
+}
 
-/* MUSIC BUTTON */
+/* glass overlay */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,14,0.7);
+  backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* gradient flow */
+@keyframes FLOW {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= VIDEO FRAME ================= */
+.flower-frame {
+  position: relative;
+  padding: 4px;
+  border-radius: 22px;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+/* moving border */
+.flower-frame::before {
+  content: "";
+  position: absolute;
+  inset: -150%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff9eb5,
+    #2f2f2f,
+    #ff6f91,
+    transparent
+  );
+  animation: TRAIN 16s linear infinite;
+  z-index: 0;
+}
+
+/* VIDEO */
+.flower-frame video {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  position: relative;
+  z-index: 1;
+  background: #000;
+}
+
+/* border animation */
+@keyframes TRAIN {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(50%) rotate(360deg); }
+}
+
+/* ================= TEXT ================= */
+.subtitle {
+  font-size: 17px;
+  color: #f5f5f5;
+  margin-bottom: 22px;
+  letter-spacing: 0.3px;
+}
+
+/* ================= MUSIC BUTTON ================= */
+.music-btn {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #ff9eb5, #ff6f91);
+  color: #111;
+  font-weight: 600;
+
+  box-shadow: 0 8px 24px rgba(255,111,145,0.6);
+}
+
+.music-btn:active {
+  transform: scale(0.96);
+}
+
+/* ================= LINKS ================= */
+.card a {
+  display: block;
+  margin: 10px 0;
+  padding: 13px;
+  border-radius: 26px;
+  background: rgba(0,0,0,0.45);
+  color: #ffd0dc;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.card a:hover {
+  background: #ff6f91;
+  color: #111;
+}
+
+/* ================= SECOND MESSAGE CARD ================= */
+.message-card {
+  margin-top: 18px;
+}
+
+.message-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ffe6ee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="flower-frame">
+    <video
+      src="her-video.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="poster.jpg">
+    </video>
+  </div>
+
+  <p class="subtitle">I made this little space just for us</p>
+
+  <button class="music-btn" id="musicBtn">Tap for music 🎵</button>
+
+  <a href="secret.html">Secret</a>
+  <a href="prettiest.html">Prettiest</a>
+  <a href="cutest.html">Cutest</a>
+  <a href="us.html">Us</a>
+</div>
+
+<div class="card message-card">
+  <p class="message-text">
+    No matter where we are,<br>
+    this space will always belong to us.<br><br>
+    Quiet. Warm. Honest.<br>
+    Just like you.
+  </p>
+</div>
+
+<audio id="bgMusic" preload="auto" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+function startMusic() {
+  music.volume = 0.6;
+  music.play().then(() => {
+    btn.textContent = "Playing 🎶";
+    btn.disabled = true;
+    btn.style.opacity = "0.6";
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+  }).catch(()=>{});
+}
+
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+
+document.querySelector("video").load();
+</script>
+
+</body>
+</html>/* MUSIC BUTTON */
 .music-btn { width:100%; padding:14px; margin-bottom:20px; border-radius:999px; border:none; cursor:pointer; background:linear-gradient(135deg,#ff9eb5,#ff6f91); color:#111; font-weight:600; box-shadow:0 8px 22px rgba(255,111,145,0.55); transition:transform 0.15s ease; }
 .music-btn:active { transform:scale(0.96); }
 
@@ -236,4 +434,5 @@ btn.addEventListener("click", () => {
 
 </body>
 </html>
+
 
