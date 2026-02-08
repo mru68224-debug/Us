@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Us</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
 <style>
 /* RESET */
 * {
@@ -34,22 +32,12 @@ html, body {
   overflow: hidden;
   text-align: center;
   color: #fff;
-
-  background: linear-gradient(
-    120deg,
-    #ff6f91,
-    #ff9eb5,
-    #ffd1dd,
-    #ff9eb5,
-    #ff6f91
-  );
+  background: linear-gradient(120deg, #ff6f91, #ff9eb5, #ffd1dd, #ff9eb5, #ff6f91);
   background-size: 500% 500%;
   animation: FLOW 12s linear infinite;
-
   box-shadow: 0 18px 55px rgba(255,111,145,0.45);
 }
 
-/* glass overlay */
 .card::before {
   content: "";
   position: absolute;
@@ -64,7 +52,7 @@ html, body {
   z-index: 1;
 }
 
-/* gradient flow */
+/* gradient animation */
 @keyframes FLOW {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -80,24 +68,14 @@ html, body {
   overflow: hidden;
 }
 
-/* moving border */
 .flower-frame::before {
   content: "";
   position: absolute;
-  inset: -150%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #ff9eb5,
-    #2f2f2f,
-    #ff6f91,
-    transparent
-  );
-  animation: TRAIN 16s linear infinite;
-  z-index: 0;
+  inset: -30%;
+  background: linear-gradient(90deg, transparent, #ff9eb5, #2e2e2e, #ff6f91, transparent);
+  animation: TRAIN 14s linear infinite;
 }
 
-/* VIDEO */
 .flower-frame video {
   width: 100%;
   height: 260px;
@@ -106,12 +84,12 @@ html, body {
   position: relative;
   z-index: 1;
   background: #000;
+  display: block;
 }
 
-/* border animation */
 @keyframes TRAIN {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to   { transform: translateX(50%) rotate(360deg); }
+  0% { transform: translateX(-40%) rotate(0deg); }
+  100% { transform: translateX(40%) rotate(360deg); }
 }
 
 /* ================= TEXT ================= */
@@ -119,7 +97,6 @@ html, body {
   font-size: 17px;
   color: #f5f5f5;
   margin-bottom: 22px;
-  letter-spacing: 0.3px;
 }
 
 /* ================= MUSIC BUTTON ================= */
@@ -130,12 +107,11 @@ html, body {
   border-radius: 999px;
   border: none;
   cursor: pointer;
-
   background: linear-gradient(135deg, #ff9eb5, #ff6f91);
   color: #111;
   font-weight: 600;
-
-  box-shadow: 0 8px 24px rgba(255,111,145,0.6);
+  box-shadow: 0 8px 22px rgba(255,111,145,0.55);
+  transition: transform 0.15s ease;
 }
 
 .music-btn:active {
@@ -152,6 +128,7 @@ html, body {
   color: #ffd0dc;
   text-decoration: none;
   font-size: 15px;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .card a:hover {
@@ -159,42 +136,42 @@ html, body {
   color: #111;
 }
 
-/* ================= SECOND MESSAGE CARD ================= */
+/* ================= MESSAGE CARD ================= */
 .message-card {
-  margin-top: 18px;
+  padding: 24px 22px;
+  border-radius: 24px;
+  margin-top: 26px;
+  background: linear-gradient(120deg, rgba(255,158,181,0.35), rgba(255,111,145,0.25));
+  box-shadow: 0 14px 40px rgba(255,111,145,0.25);
+}
+
+.message-card::before {
+  display: none;
 }
 
 .message-text {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #ffe6ee;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f6f6f6;
+  letter-spacing: 0.3px;
 }
 </style>
 </head>
-
 <body>
 
 <div class="card">
   <div class="flower-frame">
-    <video
-      src="her-video.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      poster="poster.jpg">
-    </video>
+    <video src="her-video.mp4" autoplay muted loop playsinline></video>
   </div>
 
   <p class="subtitle">I made this little space just for us</p>
 
   <button class="music-btn" id="musicBtn">Tap for music 🎵</button>
 
-  <a href="secret.html">Secret</a>
-  <a href="prettiest.html">Prettiest</a>
-  <a href="cutest.html">Cutest</a>
-  <a href="us.html">Us</a>
+  <a href="https://swanasoni.in/secret.html">Secret</a>
+  <a href="https://swanasoni.in/prettiest.html">Prettiest</a>
+  <a href="https://swanasoni.in/cutest.html">Cutest</a>
+  <a href="https://swanasoni.in/us.html">Us</a>
 </div>
 
 <div class="card message-card">
@@ -214,216 +191,6 @@ html, body {
 const music = document.getElementById("bgMusic");
 const btn = document.getElementById("musicBtn");
 
-function startMusic() {
-  music.volume = 0.6;
-  music.play().then(() => {
-    btn.textContent = "Playing 🎶";
-    btn.disabled = true;
-    btn.style.opacity = "0.6";
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("touchstart", startMusic);
-  }).catch(()=>{});
-}
-
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
-
-document.querySelector("video").load();
-</script>
-
-</body>
-</html>/* MUSIC BUTTON */
-.music-btn { width:100%; padding:14px; margin-bottom:20px; border-radius:999px; border:none; cursor:pointer; background:linear-gradient(135deg,#ff9eb5,#ff6f91); color:#111; font-weight:600; box-shadow:0 8px 22px rgba(255,111,145,0.55); transition:transform 0.15s ease; }
-.music-btn:active { transform:scale(0.96); }
-
-/* LINKS */
-.card a { display:block; margin:10px 0; padding:13px; border-radius:26px; background:rgba(0,0,0,0.45); color:#ffd0dc; text-decoration:none; font-size:15px; transition:background 0.25s ease,color 0.25s ease; }
-.card a:hover { background:#ff6f91; color:#111; }
-
-/* MESSAGE CARD */
-.message-card { margin-top:26px; padding:24px 22px; border-radius:24px; background:linear-gradient(120deg,rgba(255,158,181,0.35),rgba(255,111,145,0.25)); box-shadow:0 14px 40px rgba(255,111,145,0.25); }
-.message-card::before { display:none; }
-.message-text { font-size:16px; line-height:1.6; color:#f6f6f6; letter-spacing:0.3px; }
-</style>
-
-</head>
-<body>
-
-<div class="card">
-
-  <!-- VIDEO FRAME WITH POSTER -->
-  <div class="flower-frame">
-    <img src="first-frame.jpg" class="video-poster" alt="poster">
-    <video src="her-video.mp4" autoplay muted loop playsinline preload="auto"></video>
-  </div>
-
-  <p class="subtitle">I made this little space just for us</p>
-
-  <!-- MUSIC BUTTON -->
-  <button id="musicBtn" class="music-btn">Tap for music 🎵</button>
-
-  <!-- LINKS -->
-  <a href="secret.html">Secret</a>
-  <a href="prettiest.html">Prettiest</a>
-  <a href="cutest.html">Cutest</a>
-  <a href="us.html">Us</a>
-
-  <!-- SWEET MESSAGE CARD -->
-  <div class="card message-card">
-    <p class="message-text">
-      No matter where we are,<br>
-      this space will always belong to us.<br><br>
-      Quiet, warm, and honest — just like you.
-    </p>
-  </div>
-
-</div>
-
-<!-- AUDIO -->
-<audio id="bgMusic" preload="auto" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- JS -->
-<script>
-// VIDEO FADE-IN AFTER READY
-const vid = document.querySelector('.flower-frame video');
-const poster = document.querySelector('.video-poster');
-vid.addEventListener('canplaythrough', () => {
-  poster.style.opacity = '0';
-  vid.style.opacity = '1';
-});
-
-// MUSIC PLAY
-const music = document.getElementById('bgMusic');
-const btn = document.getElementById('musicBtn');
-function playMusic() {
-  music.volume = 0.6;
-  music.play().then(() => {
-    btn.textContent = "Playing 🎶";
-    btn.style.opacity = "0.5";
-    btn.disabled = true;
-  }).catch(err => {
-    console.log("Autoplay blocked, needs interaction", err);
-  });
-}
-// ANY TAP / CLICK TRIGGERS MUSIC
-document.addEventListener("click", playMusic);
-document.addEventListener("touchstart", playMusic);
-</script>
-
-</body>
-</html>}
-
-@keyframes FLOW {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(10,10,14,.7);
-  backdrop-filter:blur(6px);
-}
-
-.card>*{position:relative;z-index:1}
-
-.flower-frame{
-  position:relative;
-  padding:4px;
-  border-radius:22px;
-  overflow:hidden;
-  margin-bottom:22px;
-}
-
-.flower-frame::before{
-  content:"";
-  position:absolute;
-  inset:-150%;
-  background:linear-gradient(90deg,transparent,#ff9eb5,#333,#ff6f91,transparent);
-  animation:TRAIN 16s linear infinite;
-}
-
-@keyframes TRAIN{
-  from{transform:translateX(-50%) rotate(0deg)}
-  to{transform:translateX(50%) rotate(360deg)}
-}
-
-.flower-frame video{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:18px;
-  background:#000;
-}
-
-.subtitle{
-  font-size:17px;
-  margin-bottom:22px;
-}
-
-.music-btn{
-  width:100%;
-  padding:14px;
-  border-radius:999px;
-  border:none;
-  margin-bottom:20px;
-  font-weight:600;
-  cursor:pointer;
-  background:linear-gradient(135deg,#ff9eb5,#ff6f91);
-}
-
-.card a{
-  display:block;
-  margin:10px 0;
-  padding:13px;
-  border-radius:26px;
-  background:rgba(0,0,0,.45);
-  color:#ffd0dc;
-  text-decoration:none;
-}
-</style>
-</head>
-
-<body>
-
-<div class="card">
-  <div class="flower-frame">
-    <video id="heroVideo" muted loop playsinline poster="poster.jpg">
-      <source src="her-video.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <p class="subtitle">I made this little space just for us</p>
-
-  <button class="music-btn" id="musicBtn">Tap for music 🎵</button>
-
-  <a href="#">Secret</a>
-  <a href="#">Us</a>
-</div>
-
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const video = document.getElementById("heroVideo");
-const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
-
-/* FORCE VIDEO START */
-window.addEventListener("DOMContentLoaded", () => {
-  video.load();
-  const tryPlay = video.play();
-  if (tryPlay !== undefined) {
-    tryPlay.catch(() => {});
-  }
-});
-
-/* MUSIC */
 btn.addEventListener("click", () => {
   music.volume = 0.6;
   music.play();
@@ -434,5 +201,3 @@ btn.addEventListener("click", () => {
 
 </body>
 </html>
-
-
