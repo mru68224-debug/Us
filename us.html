@@ -1,17 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Us</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f11;
+  overflow-x: hidden;
+}
+
+/* ================= CARD ================= */
+.card {
+  max-width: 420px;
+  margin: 32px auto;
+  padding: 26px 22px 30px;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(120deg, #ff6f91, #ff9eb5, #ffd1dd, #ff9eb5, #ff6f91);
+  background-size: 500% 500%;
+  animation: FLOW 12s linear infinite;
+  box-shadow: 0 18px 55px rgba(255,111,145,0.45);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,14,0.7);
+  backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* gradient animation */
+@keyframes FLOW {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= TEXT ================= */
+.subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.message-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f6f6f6;
+  letter-spacing: 0.3px;
+}
+
+/* ================= MESSAGE CARD ================= */
+.message-card {
+  padding: 24px 22px;
+  border-radius: 24px;
+  margin-top: 22px;
+  background: linear-gradient(120deg, rgba(255,158,181,0.35), rgba(255,111,145,0.25));
+  box-shadow: 0 14px 40px rgba(255,111,145,0.25);
+}
+
+/* ================= LINKS ================= */
+.card a {
+  display: block;
+  margin: 10px 0;
+  padding: 13px;
+  border-radius: 26px;
+  background: rgba(0,0,0,0.45);
+  color: #ffd0dc;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.card a:hover {
+  background: #ff6f91;
+  color: #111;
+}
+</style>
 </head>
-<body class="page">
+<body>
 
-<img src="us.jpg">
-<p>Just you, me, and everything in between 💞</p>
+<div class="card">
+  <p class="subtitle">Our little world, always together</p>
 
-<audio autoplay loop>
-  <source src="music.mp3">
+  <div class="message-card">
+    <p class="message-text">
+      Here, every laugh, every silence,<br>
+      every secret is ours alone.<br><br>
+      Soft, warm, and endlessly honest.<br>
+      Just like us.
+    </p>
+  </div>
+
+  <a href="https://swanasoni.in/index.html">Home</a>
+  <a href="https://swanasoni.in/secret.html">Secret</a>
+  <a href="https://swanasoni.in/prettiest.html">Prettiest</a>
+  <a href="https://swanasoni.in/cutest.html">Cutest</a>
+</div>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0.6;
+music.play().catch(()=>{});
+</script>
+
 </body>
-</html>
+  </html>
