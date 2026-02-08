@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Us</title>
 
-  <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -23,7 +23,10 @@
 
       <p class="subtitle">I made this little space just for us</p>
 
-      <button class="music-btn" onclick="playMusic()">Tap for music</button>
+      <!-- MUSIC BUTTON -->
+      <button id="musicBtn" class="music-btn">
+        Tap for music 🎵
+      </button>
 
       <div class="buttons">
         <a href="secret.html">Secret</a>
@@ -35,16 +38,35 @@
     </div>
   </div>
 
+  <!-- AUDIO -->
   <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- JS -->
   <script>
-    function playMusic() {
-      const music = document.getElementById("bgMusic");
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+
+    let hasPlayed = false;
+
+    btn.addEventListener("click", () => {
+      if (hasPlayed) return;
+
       music.volume = 0.6;
-      music.play().catch(() => {});
-    }
+
+      music.play()
+        .then(() => {
+          hasPlayed = true;
+          btn.textContent = "Playing 🎶";
+          btn.disabled = true;
+          btn.style.opacity = "0.6";
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Browser blocked music. Refresh and tap again.");
+        });
+    });
   </script>
 
 </body>
