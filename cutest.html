@@ -1,17 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Cutest</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cutest</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  max-width: 420px;
+  width: 100%;
+  background: linear-gradient(120deg, #ff6f91, #ff9eb5, #ffd1dd);
+  border-radius: 28px;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 18px 55px rgba(255,111,145,0.45);
+  position: relative;
+  color: #fff;
+}
+
+/* FLOWER FRAME IMAGE */
+.flower-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 6px;
+  background: linear-gradient(135deg, #ff9eb5, #ff6f91);
+}
+
+.flower-frame img {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+}
+
+/* TEXT CARD */
+.text-card {
+  background: rgba(0,0,0,0.45);
+  padding: 16px;
+  border-radius: 22px;
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+/* POETIC LINES */
+.text-card p {
+  margin-bottom: 10px;
+}
+
+/* OPTIONAL BUTTON */
+.button-link {
+  display: block;
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg,#ff9eb5,#ff6f91);
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.button-link:active {
+  transform: scale(0.96);
+}
+</style>
 </head>
-<body class="page pink">
+<body>
 
-<img src="her2.jpg">
-<p>How can someone be this cute 🧸</p>
+<div class="card">
+  <div class="flower-frame">
+    <img src="her2.jpg" alt="Her Cutest Pic">
+  </div>
 
-<audio autoplay loop>
-  <source src="music.mp3">
-</audio>
+  <div class="text-card">
+    <p>Every smile you share</p>
+    <p>Turns the simplest moment into a treasure.</p>
+    <p>In your eyes, I find the quiet magic of love,</p>
+    <p>And in your laughter, the world feels alive.</p>
+  </div>
+
+  <a href="index.html" class="button-link">Back to Home</a>
+</div>
 
 </body>
 </html>
