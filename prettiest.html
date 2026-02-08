@@ -6,75 +6,96 @@
 <title>Prettiest</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family:'Poppins', sans-serif;
+  background:#0f0f11;
+  color:#fff;
+  display:flex; justify-content:center; align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-/* BASE */
-html, body {
-  width: 100%;
-  min-height: 100%;
-  font-family: 'Poppins', sans-serif;
-  background: #0f0f11;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+/* CARD */
+.card {
+  background: rgba(20,20,25,0.85);
+  backdrop-filter: blur(8px);
+  border-radius:24px;
+  padding:26px 22px;
+  max-width:420px;
+  text-align:center;
+  box-shadow:0 12px 40px rgba(255,111,145,0.3);
 }
 
-/* FLOWER FRAME */
+/* FLOWER FRAME IMAGE */
 .flower-frame {
   position: relative;
-  width: 360px;
-  height: 500px;
-  overflow: hidden;
-  border-radius: 28px;
-  padding: 8px;
-  background: url('https://i.ibb.co/ZYW3VTp/flower-frame.png') no-repeat center/cover;
-  box-shadow: 0 15px 40px rgba(255,111,145,0.4);
+  margin-bottom:22px;
+  border:6px solid transparent;
+  border-image: url('https://i.ibb.co/fFnGgNx/flower-frame.png') 30 stretch; /* aesthetic rectangular flower frame link */
+  border-radius:16px;
+  overflow:hidden;
 }
 
-/* HER IMAGE */
 .flower-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  display: block;
-  position: relative;
-  z-index: 1;
+  width:100%;
+  display:block;
+  border-radius:12px;
 }
 
-/* POETIC TEXT */
-.photo-label {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-  z-index: 2;
-  pointer-events: none;
+/* TEXT */
+.subtitle {
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:22px;
 }
+
+/* POETIC LINES */
+.message-text {
+  font-size:16px;
+  line-height:1.6;
+  color:#ffe6ee;
+  letter-spacing:0.3px;
+}
+
+/* LINKS BUTTON STYLE */
+.card a {
+  display:block;
+  margin:12px 0;
+  padding:14px;
+  border-radius:24px;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
+  background: linear-gradient(135deg,#ff9eb5,#ff6f91);
+  box-shadow:0 6px 20px rgba(255,111,145,0.5);
+  transition:0.25s;
+}
+.card a:hover { transform:scale(1.03); }
 </style>
 </head>
 <body>
 
-<div class="flower-frame">
-  <img src="her1.jpg" alt="Her">
-  <div class="photo-label">
-    Your smile lights up the darkest skies,<br>
-    Every glance, a world I adore,<br>
-    Quiet magic in every moment we share.
+<div class="card">
+  <div class="flower-frame">
+    <img src="her1.jpg" alt="Her">
   </div>
+
+  <p class="subtitle">Prettiest of all</p>
+
+  <p class="message-text">
+    In every little smile of yours,<br>
+    I find a universe that glows.<br>
+    Your laughter is my favorite song,<br>
+    In your presence, I belong.
+  </p>
+
+  <a href="index.html">Back to Home</a>
 </div>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
