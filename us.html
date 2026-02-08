@@ -22,16 +22,14 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 .card {
   max-width: 420px;
   margin: 32px auto;
-  padding: 26px 22px 30px;
   border-radius: 28px;
-  position: relative;
   overflow: hidden;
   text-align: center;
-  color: #fff;
+  position: relative;
   background: linear-gradient(120deg, #ff6f91, #ff9eb5, #ffd1dd, #ff9eb5, #ff6f91);
   background-size: 500% 500%;
   animation: FLOW 12s linear infinite;
@@ -52,59 +50,51 @@ html, body {
   z-index: 1;
 }
 
-/* gradient animation */
+/* GRADIENT ANIMATION */
 @keyframes FLOW {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* ================= VIDEO FRAME ================= */
+/* FLOWER FRAME FOR PIC */
 .flower-frame {
   position: relative;
   padding: 4px;
   border-radius: 22px;
   margin-bottom: 22px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(255,111,145,0.45);
+  background: url('flower-frame.png') no-repeat center/cover; /* flower frame image */
 }
 
-.flower-frame video {
+.frame-pic {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
-  position: relative;
-  z-index: 1;
-  background: #000;
   display: block;
-  animation: fadeIn 2s ease forwards;
-  opacity: 0;
+  border-radius: 18px;
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
+/* TEXT CARD INSIDE FLOWER FRAME */
+.frame-text {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.45);
+  padding: 12px 18px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  max-width: 90%;
 }
 
-/* ================= TEXT ================= */
-.subtitle {
-  font-size: 17px;
-  color: #f5f5f5;
-  margin-bottom: 22px;
-  font-weight: 500;
-}
-
-/* ================= MESSAGE CARD ================= */
+/* MESSAGE CARD */
 .message-card {
   padding: 24px 22px;
   border-radius: 24px;
   margin-top: 26px;
   background: linear-gradient(120deg, rgba(255,158,181,0.35), rgba(255,111,145,0.25));
   box-shadow: 0 14px 40px rgba(255,111,145,0.25);
-}
-
-.message-card::before {
-  display: none;
 }
 
 .message-text {
@@ -114,78 +104,38 @@ html, body {
   letter-spacing: 0.3px;
 }
 
-/* ================= MUSIC BUTTON ================= */
-.music-btn {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 20px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg, #ff9eb5, #ff6f91);
-  color: #111;
-  font-weight: 600;
-  box-shadow: 0 8px 22px rgba(255,111,145,0.55);
-  transition: transform 0.15s ease;
-}
-
-.music-btn:active {
-  transform: scale(0.96);
-}
-
-/* ================= LINKS ================= */
-.card a {
-  display: block;
-  margin: 10px 0;
-  padding: 13px;
-  border-radius: 26px;
-  background: rgba(0,0,0,0.45);
-  color: #ffd0dc;
-  text-decoration: none;
-  font-size: 15px;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-.card a:hover {
-  background: #ff6f91;
-  color: #111;
-}
+/* AUTO MUSIC */
 </style>
 </head>
 <body>
 
 <div class="card">
   <div class="flower-frame">
-    <video src="her-video.mp4" autoplay muted loop playsinline></video>
+    <img src="us.jpg" alt="Us" class="frame-pic">
+    <div class="frame-text">
+      Together in this little universe, love never fades
+    </div>
   </div>
-
-  <p class="subtitle">I made this little space just for us</p>
 
   <div class="message-card">
     <p class="message-text">
       No matter where we are,<br>
       this space will always belong to us.<br><br>
-      Quiet. Warm. Honest.<br>
-      Just like you.
+      Quiet, warm, and honest — just like you.
     </p>
   </div>
 </div>
 
-<audio id="bgMusic" autoplay loop>
+<audio id="bgMusic" preload="auto" loop autoplay>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const music = document.getElementById("bgMusic");
-
-// Ensure music autoplay works in all browsers
-window.addEventListener("DOMContentLoaded", () => {
-  music.volume = 0.6;
-  music.play().catch(() => {}); // ignore if blocked by browser
-});
-
-// Optional: remove music button, auto music only
+// try autoplay (browser may block)
+music.volume = 0.6;
+music.play().catch(()=>{});
 </script>
 
 </body>
-                               </html>
+      </html>
