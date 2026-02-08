@@ -14,7 +14,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* MAIN CARD */
+/* ================= CARD ================= */
 .card {
   max-width: 420px;
   margin: 32px auto;
@@ -26,38 +26,26 @@ html, body {
   color: #fff;
 
   background: linear-gradient(
-    110deg,
+    120deg,
     #ff6f91,
     #ff9eb5,
-    #ffc1d1,
+    #ffd1dd,
     #ff9eb5,
     #ff6f91
   );
-  background-size: 600% 600%;
-  animation: FLOW 6s linear infinite;
+  background-size: 400% 400%;
+  animation: FLOW 10s ease infinite;
 
-  box-shadow: 0 22px 60px rgba(255,111,145,0.45);
+  box-shadow: 0 18px 55px rgba(255,111,145,0.4);
 }
 
+/* glass overlay */
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(12,12,15,0.8);
-  backdrop-filter: blur(6px);
-  z-index: 0;
-}
-
-.card::after {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: radial-gradient(
-    circle,
-    rgba(255,160,190,0.35),
-    transparent 60%
-  );
-  animation: GLOW 8s linear infinite;
+  background: rgba(12,12,15,0.75);
+  backdrop-filter: blur(5px);
   z-index: 0;
 }
 
@@ -66,20 +54,14 @@ html, body {
   z-index: 1;
 }
 
-/* CARD ANIMATIONS */
+/* background animation */
 @keyframes FLOW {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-@keyframes GLOW {
-  0% { transform: translate(-30%, -30%); }
-  50% { transform: translate(30%, 30%); }
-  100% { transform: translate(-30%, -30%); }
-}
-
-/*  VIDEO FRAME WITH MOVING BORDER */
+/* ================= VIDEO FRAME ================= */
 .flower-frame {
   position: relative;
   padding: 4px;
@@ -88,23 +70,23 @@ html, body {
   overflow: hidden;
 }
 
-/* animated border */
+/* moving border — lighter & slower */
 .flower-frame::before {
   content: "";
   position: absolute;
-  inset: -40%;
+  inset: -30%;
   background: linear-gradient(
     90deg,
     transparent,
     #ff9eb5,
-    #3a3a3a,
+    #2e2e2e,
     #ff6f91,
     transparent
   );
-  animation: TRAIN 8s linear infinite;
+  animation: TRAIN 14s linear infinite;
 }
 
-/* dark inner mask */
+/* inner mask */
 .flower-frame::after {
   content: "";
   position: absolute;
@@ -114,6 +96,7 @@ html, body {
   z-index: 1;
 }
 
+/* VIDEO */
 .flower-frame video {
   width: 100%;
   height: 260px;
@@ -121,23 +104,28 @@ html, body {
   border-radius: 18px;
   position: relative;
   z-index: 2;
+
+  /* PERFORMANCE FIXES */
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
-/* TRAIN BORDER ANIMATION */
+/* border animation */
 @keyframes TRAIN {
-  0% { transform: translateX(-50%) rotate(0deg); }
-  100% { transform: translateX(50%) rotate(360deg); }
+  0%   { transform: translateX(-40%) rotate(0deg); }
+  100% { transform: translateX(40%) rotate(360deg); }
 }
 
-/* SUBTITLE */
+/* ================= TEXT ================= */
 .subtitle {
   font-size: 17px;
   color: #f4f4f4;
   margin-bottom: 22px;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.3px;
 }
 
-/* MUSIC BUTTON */
+/* ================= MUSIC BUTTON ================= */
 .music-btn {
   width: 100%;
   padding: 14px;
@@ -145,17 +133,20 @@ html, body {
   border-radius: 999px;
   border: none;
   cursor: pointer;
+
   background: linear-gradient(135deg, #ff9eb5, #ff6f91);
   color: #111;
   font-weight: 600;
-  box-shadow: 0 10px 28px rgba(255,111,145,0.65);
+
+  box-shadow: 0 8px 22px rgba(255,111,145,0.55);
+  transition: transform 0.15s ease;
 }
 
 .music-btn:active {
   transform: scale(0.96);
 }
 
-/* LINKS */
+/* ================= LINKS ================= */
 .card a {
   display: block;
   margin: 10px 0;
@@ -165,6 +156,112 @@ html, body {
   color: #ffd0dc;
   text-decoration: none;
   font-size: 15px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.card a:hover {
+  background: #ff6f91;
+  color: #111;
+}  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= VIDEO FRAME ================= */
+.flower-frame {
+  position: relative;
+  padding: 4px;
+  border-radius: 22px;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+/* moving border — lighter & slower */
+.flower-frame::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff9eb5,
+    #2e2e2e,
+    #ff6f91,
+    transparent
+  );
+  animation: TRAIN 14s linear infinite;
+}
+
+/* inner mask */
+.flower-frame::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: #000;
+  border-radius: 18px;
+  z-index: 1;
+}
+
+/* VIDEO */
+.flower-frame video {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  position: relative;
+  z-index: 2;
+
+  /* PERFORMANCE FIXES */
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* border animation */
+@keyframes TRAIN {
+  0%   { transform: translateX(-40%) rotate(0deg); }
+  100% { transform: translateX(40%) rotate(360deg); }
+}
+
+/* ================= TEXT ================= */
+.subtitle {
+  font-size: 17px;
+  color: #f4f4f4;
+  margin-bottom: 22px;
+  letter-spacing: 0.3px;
+}
+
+/* ================= MUSIC BUTTON ================= */
+.music-btn {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #ff9eb5, #ff6f91);
+  color: #111;
+  font-weight: 600;
+
+  box-shadow: 0 8px 22px rgba(255,111,145,0.55);
+  transition: transform 0.15s ease;
+}
+
+.music-btn:active {
+  transform: scale(0.96);
+}
+
+/* ================= LINKS ================= */
+.card a {
+  display: block;
+  margin: 10px 0;
+  padding: 13px;
+  border-radius: 26px;
+  background: rgba(0,0,0,0.45);
+  color: #ffd0dc;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .card a:hover {
