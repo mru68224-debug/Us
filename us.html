@@ -60,13 +60,17 @@ html, body {
 /* FLOWER FRAME FOR PIC */
 .flower-frame {
   position: relative;
-  padding: 4px;
-  border-radius: 22px;
+  padding: 12px; /* previous 4px, ab 12px for thicker frame */
+  border-radius: 28px;
   margin-bottom: 22px;
   overflow: hidden;
   background: url('flower-frame.png') no-repeat center/cover; /* flower frame image */
 }
-
+.frame-pic {
+  width: 100%;
+  display: block;
+  border-radius: 20px; /* slightly smaller than frame */
+}
 .frame-pic {
   width: 100%;
   display: block;
@@ -139,3 +143,4 @@ music.play().catch(()=>{});
 
 </body>
       </html>
+
