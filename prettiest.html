@@ -6,40 +6,18 @@
 <title>Prettiest</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #0f0f11;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-.flower-frame {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  padding: 10px;
-  background: url('flower-frame.png') no-repeat center/cover; /* flower frame image */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flower-frame img {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+body { margin:0; font-family:'Poppins', sans-serif; background:#0f0f11; display:flex; justify-content:center; align-items:center; height:100vh; }
+.flower-frame { position:relative; width:300px; height:300px; border-radius:50%; overflow:hidden; padding:10px; background: url('flower-frame.png') center/cover no-repeat; }
+.flower-frame img { width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; }
+.button-overlay { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); background:rgba(255,255,255,0.8); color:#111; font-weight:bold; padding:8px 16px; border-radius:20px; font-size:16px; }
 </style>
 </head>
 <body>
 
 <div class="flower-frame">
   <img src="her-pic.jpg" alt="Her Pic">
+  <div class="button-overlay">Prettiest</div>
 </div>
 
 </body>
-  </html>
+</html>
