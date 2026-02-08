@@ -268,3 +268,32 @@ html, body {
   background: #ff6f91;
   color: #111;
 }
+
+/* ================= MESSAGE CARD ================= */
+.message-card {
+  margin-top: 26px;
+  padding: 24px 22px;
+  border-radius: 24px;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255,158,181,0.35),
+    rgba(255,111,145,0.25)
+  );
+
+  animation: NONE;
+  box-shadow: 0 14px 40px rgba(255,111,145,0.25);
+}
+
+/* remove heavy glass */
+.message-card::before {
+  background: rgba(15,15,18,0.55);
+}
+
+/* message text */
+.message-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f6f6f6;
+  letter-spacing: 0.3px;
+}
