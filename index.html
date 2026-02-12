@@ -1,42 +1,219 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Us</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Us</title>  
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">  <style>  
+/* RESET */  
+* {  
+  margin: 0;  
+  padding: 0;  
+  box-sizing: border-box;  
+}  
+  
+/* BASE */  
+html, body {  
+  width: 100%;  
+  min-height: 100%;  
+  font-family: 'Poppins', sans-serif;  
+  background: #0f0f11;  
+  overflow-x: hidden;  
+}  
+  
+/* ================= CARD ================= */  
+.card {  
+  max-width: 420px;  
+  margin: 32px auto;  
+  padding: 26px 22px 30px;  
+  border-radius: 28px;  
+  position: relative;  
+  overflow: hidden;  
+  text-align: center;  
+  color: #fff;  
+  background: linear-gradient(120deg, #ff6f91, #ff9eb5, #ffd1dd, #ff9eb5, #ff6f91);  
+  background-size: 500% 500%;  
+  animation: FLOW 12s linear infinite;  
+  box-shadow: 0 18px 55px rgba(255,111,145,0.45);  
+}  
+  
+.card::before {  
+  content: "";  
+  position: absolute;  
+  inset: 0;  
+  background: rgba(10,10,14,0.7);  
+  backdrop-filter: blur(6px);  
+  z-index: 0;  
+}  
+  
+.card > * {  
+  position: relative;  
+  z-index: 1;  
+}  
+  
+/* gradient animation */  
+@keyframes FLOW {  
+  0% { background-position: 0% 50%; }  
+  50% { background-position: 100% 50%; }  
+  100% { background-position: 0% 50%; }  
+}  
+  
+/* ================= VIDEO FRAME ================= */  
+.flower-frame {  
+  position: relative;  
+  padding: 4px;  
+  border-radius: 22px;  
+  margin-bottom: 22px;  
+  overflow: hidden;  
+}  
+  
+.flower-frame::before {  
+  content: "";  
+  position: absolute;  
+  inset: -30%;  
+  background: linear-gradient(90deg, transparent, #ff9eb5, #2e2e2e, #ff6f91, transparent);  
+  animation: TRAIN 14s linear infinite;  
+}  
+  
+.flower-frame video {  
+  width: 100%;  
+  height: 260px;  
+  object-fit: cover;  
+  border-radius: 18px;  
+  position: relative;  
+  z-index: 1;  
+  background: #000;  
+  display: block;  
+}  
+  
+@keyframes TRAIN {  
+  0% { transform: translateX(-40%) rotate(0deg); }  
+  100% { transform: translateX(40%) rotate(360deg); }  
+}  
+  
+/* ================= TEXT ================= */  
+.subtitle {  
+  font-size: 17px;  
+  color: #f5f5f5;  
+  margin-bottom: 22px;  
+}  
+  
+/* ================= MUSIC BUTTON ================= */  
+.music-btn {  
+  width: 100%;  
+  padding: 14px;  
+  margin-bottom: 20px;  
+  border-radius: 999px;  
+  border: none;  
+  cursor: pointer;  
+  background: linear-gradient(135deg, #ff9eb5, #ff6f91);  
+  color: #111;  
+  font-weight: 600;  
+  box-shadow: 0 8px 22px rgba(255,111,145,0.55);  
+  transition: transform 0.15s ease;  
+}  
+  
+.music-btn:active {  
+  transform: scale(0.96);  
+}  
+  
+/* ================= LINKS ================= */  
+.card a {  
+  display: block;  
+  margin: 10px 0;  
+  padding: 13px;  
+  border-radius: 26px;  
+  background: rgba(0,0,0,0.45);  
+  color: #ffd0dc;  
+  text-decoration: none;  
+  font-size: 15px;  
+  transition: background 0.25s ease, color 0.25s ease;  
+}  
+  
+.card a:hover {  
+  background: #ff6f91;  
+  color: #111;  
+}  
+  
+/* ================= MESSAGE CARD ================= */  
+.message-card {  
+  padding: 24px 22px;  
+  border-radius: 24px;  
+  margin-top: 26px;  
+  background: linear-gradient(120deg, rgba(255,158,181,0.35), rgba(255,111,145,0.25));  
+  box-shadow: 0 14px 40px rgba(255,111,145,0.25);  
+}  
+  
+.message-text {  
+  font-size: 16px;  
+  line-height: 1.6;  
+  color: #f6f6f6;  
+  letter-spacing: 0.3px;  
+}  
+  
+/* ================= PASSWORD LOCK ================= */  
+#lockScreen {  
+  position: fixed;  
+  inset: 0;  
+  background: #0f0f11;  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  z-index: 99999;  
+}  
+  
+.lock-box {  
+  width: 90%;  
+  max-width: 320px;  
+  text-align: center;  
+}  
+  
+.lock-title {  
+  color: #fff;  
+  font-size: 18px;  
+  margin-bottom: 20px;  
+}  
+  
+.lock-box input {  
+  width: 100%;  
+  padding: 14px;  
+  border-radius: 18px;  
+  border: none;  
+  outline: none;  
+  background: #1a1a1f;  
+  color: #fff;  
+  font-size: 16px;  
+  text-align: center;  
+  margin-bottom: 16px;  
+}  
+  
+.lock-box button {  
+  width: 100%;  
+  padding: 14px;  
+  border-radius: 999px;  
+  border: none;  
+  background: linear-gradient(135deg, #ff9eb5, #ff6f91);  
+  color: #111;  
+  font-weight: 600;  
+  cursor: pointer;  
+}  
+</style>  </head>  <body>  <!-- PASSWORD SCREEN -->  <div id="lockScreen">  
+  <div class="lock-box">  
+    <p class="lock-title">Enter password</p>  
+    <input type="password" id="mainPass" placeholder="••••••">  
+    <button onclick="unlock()">Unlock</button>  
+  </div>  
+</div>  <div class="card">  
+  <div class="flower-frame">  
+    <video id="heroVideo" autoplay muted loop playsinline>  
+      <source src="her-video.mp4" type="video/mp4">  
+    </video>  
+  </div>    <p class="subtitle">I made this little space just for us</p>  <button class="music-btn" id="musicBtn">Tap to play 🎶</button>
 
-<!-- PASSWORD SCREEN -->
-<div id="lockScreen">
-  <div class="lock-box">
-    <p class="lock-title">Enter password</p>
-    <input type="password" id="mainPass" placeholder="••••••">
-    <button onclick="unlock()">Unlock</button>
-  </div>
-</div>
+<a href="https://swanasoni.in/secret.html">Secret</a>
+<a href="https://swanasoni.in/prettiest.html">Prettiest</a>
+<a href="https://swanasoni.in/cutest.html">Cutest</a>
+<a href="https://swanasoni.in/us.html">Us</a>
 
-<!-- MAIN CARD -->
-<div class="card">
-  <div class="flower-frame">
-    <video id="heroVideo" autoplay muted loop playsinline>
-      <source src="her-video.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <p class="subtitle">I made this little space just for us</p>
-
-  <button class="music-btn" id="musicBtn">Tap to play 🎶</button>
-
-  <a href="https://swanasoni.in/secret.html">Secret</a>
-  <a href="https://swanasoni.in/prettiest.html">Prettiest</a>
-  <a href="https://swanasoni.in/cutest.html">Cutest</a>
-  <a href="https://swanasoni.in/us.html">Us</a>
-</div>
-
-<!-- MESSAGE CARD -->
 <div class="card message-card">
   <p class="message-text">
     We’ve walked a path that’s anything but smooth.<br>
@@ -50,64 +227,54 @@
     still realizing, in quiet moments,<br>
     that life without you is impossible to imagine.<br><br>
 
-    We’ve made mistakes we’ve said things we wish we hadn’t,<br>
+    We’ve made mistakes — we’ve said things we wish we hadn’t,<br>
     we’ve carried silences heavy enough to break hearts.<br>
     But through it all, we’ve kept coming back,<br>
-    because some truths don’t need words <br>
+    because some truths don’t need words:<br>
     you and I, we belong in each other’s presence.<br><br>
 
-    So here’s to us imperfect, fiery, tender, alive.<br>
+    So here’s to us — imperfect, fiery, tender, alive.<br>
     Here’s to staying, even when it’s difficult,<br>
     to forgiving, even when it’s messy,<br>
-    to laughing, to crying, to being exactly who we are together.<br><br>
+    to laughing, to crying, to being exactly who we are — together.<br><br>
 
     Let’s keep this story alive,<br>
     not because it’s easy, but because it’s ours,<br>
     because every beat of my heart<br>
-    reminds me that I cannot  and do not want to <br>
+    reminds me that I cannot — and do not want to —<br>
     exist without yours nearby.<br><br>
 
     Be my Valentine today, tomorrow, and every day we get to stay in this little world we’ve built.
   </p>
-</div>
-
-<audio id="bgMusic" autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-<script>
-const music = document.getElementById("bgMusic");
-music.volume = 0.6;
-music.play().catch(()=>{});  // ensures it plays even if browser pauses
-</script>
-const HOME_PASSWORD = "swanappkp";
-
-function unlock() {
-  const input = document.getElementById("mainPass").value;
-  if(input === HOME_PASSWORD){
-    document.getElementById("lockScreen").style.display = "none";
-  } else {
-    document.querySelector(".lock-title").innerText = "baby try again mwah";
-  }
-}
-
-// MUSIC BUTTON LOGIC
-const music = document.getElementById("bgMusic");
-music.volume = 0.6;
-music.play().catch(()=>{});
-
-const btn = document.getElementById("musicBtn");
-btn.addEventListener("click", () => {
-  if (music.paused) {
-    music.play();
-    btn.textContent = "Playing 🎶";
-  } else {
-    music.pause();
-    btn.textContent = "Paused ⏸️";
-  }
-});
-</script>
-
-</body>
-</html>
-
-
+</div> 
+  <audio id="bgMusic" autoplay loop>  
+  <source src="music.mp3" type="audio/mpeg">  
+</audio>  <script>  
+const HOME_PASSWORD = "swanappkp";  
+  
+function unlock() {  
+  const input = document.getElementById("mainPass").value;  
+  if (input === HOME_PASSWORD) {  
+    document.getElementById("lockScreen").style.display = "none";  
+  } else {  
+    document.querySelector(".lock-title").innerText = "baby try again mwah";  
+  }  
+}  
+  
+/* music logic (unchanged) */  
+const music = document.getElementById("bgMusic");  
+music.volume = 0.6;  
+music.play().catch(()=>{});  
+  
+const btn = document.getElementById("musicBtn");  
+btn.addEventListener("click", () => {  
+  if (music.paused) {  
+    music.play();  
+    btn.textContent = "Playing 🎶";  
+  } else {  
+    music.pause();  
+    btn.textContent = "Paused ⏸️";  
+  }  
+});  
+</script>  </body>  
+</html> 
