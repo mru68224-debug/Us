@@ -197,7 +197,7 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
-  opacity: 0.15;
+  opacity: 0.6;           /* increased opacity */
   animation: floatLips 8s linear infinite;
   pointer-events: none;
 }
@@ -209,20 +209,7 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
-  opacity: 0.15;
+  opacity: 0.6;           /* increased opacity */
   animation: floatLipsReverse 12s linear infinite;
   pointer-events: none;
 }
-
-@keyframes floatLips {
-  0% { transform: translateX(-50%) translateY(0) rotate(0deg); }
-  50% { transform: translateX(-60%) translateY(-10px) rotate(15deg); }
-  100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
-}
-
-@keyframes floatLipsReverse {
-  0% { transform: translateX(-50%) translateY(0) rotate(0deg); }
-  50% { transform: translateX(-40%) translateY(10px) rotate(-15deg); }
-  100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
-}
-
