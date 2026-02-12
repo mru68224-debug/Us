@@ -24,15 +24,16 @@ html, body {
 
 /* ========== LOCK SCREEN ========== */
 #lockScreen {
-  position: relative; /* MUST have this for pseudo-elements */
+  position: fixed;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  inset: 0;
+  flex-direction: column;
   background: radial-gradient(circle at top, rgba(255,158,181,0.18), rgba(15,15,17,0.95));
   backdrop-filter: blur(10px);
-  z-index: 99999;
-  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
 }
 
 /* floating kisses */
@@ -41,7 +42,7 @@ html, body {
   position: absolute;
   left: 50%;
   font-size: 2rem;
-  opacity: 0.25;
+  opacity: 0.7;
   pointer-events: none;
   transform: translateX(-50%);
 }
@@ -142,8 +143,10 @@ const HOME_PASSWORD = "swanappkp";
 
 function unlock() {
   const input = document.getElementById("mainPass").value;
+  const lock = document.getElementById("lockScreen");
   if(input === HOME_PASSWORD){
-    document.getElementById("lockScreen").style.display = "none";
+    lock.style.opacity = 0;
+    setTimeout(()=> lock.style.display = "none", 500);
   } else {
     document.querySelector(".lock-title").innerText = "baby try again mwah";
   }
