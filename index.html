@@ -245,22 +245,29 @@ html, body {
 
 <script>
 const HOME_PASSWORD = "swanappkp";
+const lockScreen = document.getElementById("lockScreen");
+const input = document.getElementById("mainPass");
+const title = document.querySelector(".lock-title");
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+music.volume = 0.6;
 
 function unlock() {
-  const input = document.getElementById("mainPass").value;
-  if (input === HOME_PASSWORD) {
-    document.getElementById("lockScreen").style.display = "none";
+  if (input.value === HOME_PASSWORD) {
+    lockScreen.style.display = "none";
+    title.innerText = "Enter password";
+    music.play().catch(()=>{});
   } else {
-    document.querySelector(".lock-title").innerText = "baby try again mwah";
+    title.innerText = "baby try again mwah";
+    input.value = "";
   }
 }
 
-/* music logic (unchanged) */
-const music = document.getElementById("bgMusic");
-music.volume = 0.6;
-music.play().catch(()=>{});
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") unlock();
+});
 
-const btn = document.getElementById("musicBtn");
 btn.addEventListener("click", () => {
   if (music.paused) {
     music.play();
@@ -274,4 +281,5 @@ btn.addEventListener("click", () => {
 
 </body>
 </html>
+
 
