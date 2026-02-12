@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Us</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 /* RESET */
 * {
@@ -145,19 +146,72 @@ html, body {
   box-shadow: 0 14px 40px rgba(255,111,145,0.25);
 }
 
-.message-card::before {
-  display: none;
-}
-
 .message-text {
   font-size: 16px;
   line-height: 1.6;
   color: #f6f6f6;
   letter-spacing: 0.3px;
 }
+
+/* ================= PASSWORD LOCK ================= */
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: #0f0f11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.lock-box {
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.lock-title {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.lock-box input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 18px;
+  border: none;
+  outline: none;
+  background: #1a1a1f;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.lock-box button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff9eb5, #ff6f91);
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+}
 </style>
 </head>
+
 <body>
+
+<!-- PASSWORD SCREEN -->
+<div id="lockScreen">
+  <div class="lock-box">
+    <p class="lock-title">Enter password</p>
+    <input type="password" id="mainPass" placeholder="••••••">
+    <button onclick="unlock()">Unlock</button>
+  </div>
+</div>
 
 <div class="card">
   <div class="flower-frame">
@@ -190,11 +244,22 @@ html, body {
 </audio>
 
 <script>
+const HOME_PASSWORD = "change-this-password";
+
+function unlock() {
+  const input = document.getElementById("mainPass").value;
+  if (input === HOME_PASSWORD) {
+    document.getElementById("lockScreen").style.display = "none";
+  } else {
+    document.querySelector(".lock-title").innerText = "Wrong password";
+  }
+}
+
+/* music logic (unchanged) */
 const music = document.getElementById("bgMusic");
 music.volume = 0.6;
 music.play().catch(()=>{});
 
-// Optional: music button still can pause/play if needed
 const btn = document.getElementById("musicBtn");
 btn.addEventListener("click", () => {
   if (music.paused) {
@@ -208,5 +273,4 @@ btn.addEventListener("click", () => {
 </script>
 
 </body>
-    </html>
-
+</html>
