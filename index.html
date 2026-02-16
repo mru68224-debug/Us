@@ -1,112 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Us</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎂</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- For the cute font -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- PASSWORD SCREEN -->
-<div id="lockScreen">
-  <div class="lock-box">
-    <p class="lock-title">Enter password</p>
-    <input type="password" id="mainPass" placeholder="••••••">
-    <button onclick="unlock()">Unlock</button>
-  </div>
-</div>
+    <!-- OVERLAY: This blocks the site until she clicks "Start" (Required for music to play) -->
+    <div id="start-overlay">
+        <div class="card">
+            <h1>Hey Beautiful... 💖</h1>
+            <p>I made something special for you.</p>
+            <button id="start-btn">Tap to Open</button>
+        </div>
+    </div>
 
-<!-- MAIN CONTENT -->
-<div class="card">
-  <div class="flower-frame">
-    <video id="heroVideo" muted loop playsinline>
-      <source src="her-video.mp4" type="video/mp4">
-    </video>
-  </div>
-  <p class="subtitle">I made this little space just for us</p>
-  <button class="music-btn" id="musicBtn">Tap to play 🎶</button>
+    <!-- MAIN CONTENT -->
+    <div class="container hidden" id="main-content">
+        
+        <!-- Header & Photo -->
+        <div class="photo-frame">
+            <img src="her_photo.jpg" alt="Us 💕">
+        </div>
+        <h1 class="title">Counting Down to Your Special Day</h1>
 
-  <a href="https://swanasoni.in/secret.html">Secret</a>
-  <a href="https://swanasoni.in/prettiest.html">Prettiest</a>
-  <a href="https://swanasoni.in/cutest.html">Cutest</a>
-  <a href="https://swanasoni.in/us.html">Us</a>
-</div>
+        <!-- Countdown Timer -->
+        <div id="countdown">
+            <div class="time-box"><span id="days">000</span><label>Days</label></div>
+            <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+            <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
+            <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
+        </div>
 
-<div class="card message-card">
-  <p class="message-text">
-    We’ve walked a path that’s anything but smooth.<br>
-    We’ve clashed, we’ve hurt, we’ve tested each other’s patience,<br>
-    and sometimes, in the heat of it all,<br>
-    I wondered if we could survive the storms we made ourselves.<br><br>
+        <!-- The Game Section -->
+        <div class="game-section">
+            <h2>Play to unlock a secret message! 🤫</h2>
+            <p>Score <span id="target-score">5</span> points by clicking the hearts!</p>
+            <p>Score: <span id="score">0</span></p>
+            <div id="game-area">
+                <!-- Hearts will appear here -->
+            </div>
+        </div>
+    </div>
 
-    And yet… here we are. Still.<br>
-    Still choosing each other even when it’s hard,<br>
-    still finding the little threads that tie us together,<br>
-    still realizing, in quiet moments,<br>
-    that life without you is impossible to imagine.<br><br>
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
 
-    We’ve made mistakes we’ve said things we wish we hadn’t,<br>
-    we’ve carried silences heavy enough to break hearts.<br>
-    But through it all, we’ve kept coming back,<br>
-    because some truths don’t need words:<br>
-    you and I, we belong in each other’s presence.<br><br>
-
-    So here’s to us imperfect, fiery, tender, alive.<br>
-    Here’s to staying, even when it’s difficult,<br>
-    to forgiving, even when it’s messy,<br>
-    to laughing, to crying, to being exactly who we are — together.<br><br>
-
-    Let’s keep this story alive,<br>
-    not because it’s easy, but because it’s ours,<br>
-    because every beat of my heart<br>
-    reminds me that I cannot and do not want to <br>
-    exist without yours nearby.<br><br>
-
-    Be my Valentine today, tomorrow, and every day we get to stay in this little world we’ve built.
-  </p>
-</div>
-
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const HOME_PASSWORD = "swanappkp";
-
-function unlock() {
-  const input = document.getElementById("mainPass").value;
-  if(input === HOME_PASSWORD){
-    document.getElementById("lockScreen").style.display = "none";
-
-    // music starts
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.6;
-    music.play().catch(()=>{});
-
-    // video plays
-    const video = document.getElementById("heroVideo");
-    video.play().catch(()=>{});
-  } else {
-    document.querySelector(".lock-title").innerText = "baby try again mwah";
-  }
-}
-
-// music toggle button
-const btn = document.getElementById("musicBtn");
-btn.addEventListener("click", () => {
-  const music = document.getElementById("bgMusic");
-  if (music.paused) {
-    music.play();
-    btn.textContent = "Playing 🎶";
-  } else {
-    music.pause();
-    btn.textContent = "Paused ⏸️";
-  }
-});
-</script>
-
+    <script src="script.js"></script>
 </body>
-</html>
-
+              </html>
