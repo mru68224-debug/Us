@@ -3,56 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday! 🎂</title>
+    <title>For My Love </title>
     <link rel="stylesheet" href="style.css">
-    <!-- For the cute font -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- OVERLAY: This blocks the site until she clicks "Start" (Required for music to play) -->
+    <!-- Background Animation -->
+    <div class="bg-hearts" id="bg-hearts"></div>
+
+    <!-- START OVERLAY -->
     <div id="start-overlay">
-        <div class="card">
-            <h1>Hey Beautiful... 💖</h1>
-            <p>I made something special for you.</p>
-            <button id="start-btn">Tap to Open</button>
+        <div class="start-card">
+            <h1>Special Delivery</h1>
+            <p>A message from your secret admirer</p>
+            <button class="start-btn" id="start-btn">Open Letter </button>
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
-    <div class="container hidden" id="main-content">
+    <div class="container" id="main-content">
         
-        <!-- Header & Photo -->
-        <div class="photo-frame">
-            <img src="her_photo.jpg" alt="Us 💕">
+        <!-- Card 1: Photo & Countdown -->
+        <div class="glass-card">
+            <div class="photo-wrapper">
+                <div class="photo-ring"></div>
+                <div class="photo-circle">
+                    <img src="her_photo.jpg" alt="My Love">
+                </div>
+            </div>
+            
+            <h1 class="title-text">Until your Special Day</h1>
+            
+            <div class="countdown-container">
+                <div class="time-unit">
+                    <span class="time-val" id="days">000</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-val" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-val" id="mins">00</span>
+                    <span class="time-label">Mins</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-val" id="secs">00</span>
+                    <span class="time-label">Secs</span>
+                </div>
+            </div>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Counting down to Feb 18, 2026 </p>
         </div>
-        <h1 class="title">Counting Down to Your Special Day</h1>
 
-        <!-- Countdown Timer -->
-        <div id="countdown">
-            <div class="time-box"><span id="days">000</span><label>Days</label></div>
-            <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
-            <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
-            <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
-        </div>
-
-        <!-- The Game Section -->
-        <div class="game-section">
-            <h2>Play to unlock a secret message! 🤫</h2>
-            <p>Score <span id="target-score">5</span> points by clicking the hearts!</p>
-            <p>Score: <span id="score">0</span></p>
-            <div id="game-area">
-                <!-- Hearts will appear here -->
+        <!-- Card 2: The Game -->
+        <div class="glass-card game-card">
+            <h3>Unlock the Secret </h3>
+            <p>Catch <span id="target-score">5</span> floating hearts to reveal your surprise!</p>
+            <p>Score: <span id="score" style="color: #ff4757; font-weight: bold;">0</span></p>
+            <div class="game-area" id="game-area">
+                <!-- Hearts spawn here -->
             </div>
         </div>
+
     </div>
 
-    <!-- Background Music -->
+    <!-- Audio -->
     <audio id="bg-music" loop>
         <source src="music.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 
     <script src="script.js"></script>
 </body>
-              </html>
+</html>

@@ -1,123 +1,244 @@
+/* Import elegant fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
     min-height: 100vh;
+    /* Beautiful soft gradient background */
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
+    font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
-    text-align: center;
-    color: #444;
+    color: #5a3e5a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* The Overlay Card */
+/* ANIMATED BACKGROUND ELEMENTS */
+.bg-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.heart-bg {
+    position: absolute;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* OVERLAY SCREEN (Start Button) */
 #start-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: #fff0f5;
+    background: rgba(255, 237, 226, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 999;
+    backdrop-filter: blur(5px);
 }
 
-.card {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+.start-card {
     text-align: center;
-    animation: float 3s ease-in-out infinite;
+    animation: fadeInScale 1s ease-out;
 }
 
-.card h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #ff69b4; margin: 0; }
-.card p { font-size: 1.2rem; color: #666; margin: 15px 0 25px; }
+.start-card h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #e65c6a;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
+}
 
-button#start-btn {
-    background: #ff69b4;
+.start-card p {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #8a6b7a;
+}
+
+.start-btn {
+    background: #ff6b81;
     color: white;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.2rem;
+    padding: 18px 50px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 10px 30px rgba(255, 107, 129, 0.4);
+    transition: all 0.3s ease;
 }
 
-button#start-btn:hover { background: #ff1493; transform: scale(1.05); }
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 129, 0.5);
+    background: #ff4757;
+}
 
-/* Main Content */
-.hidden { display: none !important; }
+/* MAIN CONTAINER */
+.container {
+    width: 90%;
+    max-width: 450px;
+    padding: 20px;
+    display: none; /* Hidden by default */
+}
 
-.container { padding: 20px; }
+.container.active {
+    display: block;
+    animation: fadeInScale 1s ease-out;
+}
 
-.photo-frame {
-    width: 200px; height: 200px;
-    margin: 0 auto 20px;
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* THE FROSTED GLASS CARD */
+.glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px); /* The frosted glass effect */
+    border-radius: 25px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    margin-bottom: 25px;
+}
+
+/* PHOTO SECTION */
+.photo-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 25px;
+}
+
+.photo-circle {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    border: 5px solid white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 5px solid rgba(255,255,255,0.9);
+    box-shadow: 0 15px 35px rgba(230, 92, 106, 0.25);
     overflow: hidden;
-    animation: float 4s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
 }
 
-.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-
-.title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    color: #d63384;
-    margin-bottom: 30px;
+.photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-/* Countdown */
-#countdown {
+.photo-circle:hover img {
+    transform: scale(1.1);
+}
+
+/* Decorative ring around photo */
+.photo-ring {
+    position: absolute;
+    top: -10px; left: -10px; right: -10px; bottom: -10px;
+    border: 2px dashed #ff6b81;
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+    z-index: 1;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.title-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #e65c6a;
+    margin: 0 0 20px 0;
+}
+
+/* COUNTDOWN */
+.countdown-container {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
-.time-box {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    min-width: 70px;
+.time-unit {
+    background: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    padding: 10px 15px;
+    min-width: 65px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.time-box span { display: block; font-size: 2rem; font-weight: bold; color: #ff69b4; }
-.time-box label { font-size: 0.9rem; color: #888; }
-
-/* Game Area */
-.game-section { margin-top: 20px; background: rgba(255,255,255,0.6); padding: 20px; border-radius: 15px; }
-#game-area {
-    width: 100%; height: 300px;
-    background: #fff;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    margin-top: 15px;
-    border: 2px dashed #ff69b4;
+.time-val {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ff6b81;
 }
 
-.heart {
+.time-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8a6b7a;
+}
+
+/* GAME SECTION */
+.game-card {
+    text-align: center;
+}
+
+.game-card p { margin: 5px 0 15px; font-size: 0.9rem; color: #6a5a6a; }
+.game-card h3 { margin: 0 0 10px; font-weight: 600; }
+
+.game-area {
+    height: 250px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    cursor: crosshair;
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+/* The floating hearts in game */
+.heart-target {
     position: absolute;
     font-size: 2rem;
     cursor: pointer;
     user-select: none;
-    animation: popIn 0.3s ease-out;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
     transition: transform 0.1s;
-}
-.heart:active { transform: scale(1.5); }
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    animation: floatBubble 3s linear forwards; 
 }
 
-@keyframes popIn {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
-  }
+.heart-target:active { transform: scale(1.5) rotate(20deg); }
+
+/* Animation for game hearts to float up */
+@keyframes floatBubble {
+    0% { transform: translateY(100%) scale(0.5); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-120%) scale(1); opacity: 0; }
+}
+
+/* UTILITY */
+.hidden { display: none !important; }
