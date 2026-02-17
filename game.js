@@ -1,20 +1,15 @@
-let heart = document.getElementById("heart");
-
-let score = 0;
+let heart=document.getElementById("heart");
 
 heart.onclick=function(){
 
-score++;
+window.location="secret.html";
 
-document.getElementById("score").innerText=score;
+};
 
-heart.style.top=Math.random()*300+"px";
+setInterval(()=>{
 
-heart.style.left=Math.random()*300+"px";
+heart.style.top=Math.random()*80+"%";
 
+heart.style.left=Math.random()*80+"%";
 
-if(score==10)
-
-window.location.href="secret.html";
-
-}
+},700);
