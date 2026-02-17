@@ -1,7 +1,6 @@
-function checkPassword(){
+function unlock(){
 
 let pass=document.getElementById("password").value;
-
 
 if(pass==="birthdaygirl")
 
