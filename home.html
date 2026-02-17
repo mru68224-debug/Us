@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <meta name="viewport" content="width=device-width">
 
 <link rel="stylesheet" href="style.css">
 
+<title>Home</title>
+
 </head>
 
 <body>
 
 
-<audio autoplay loop>
+<audio id="music" loop>
 
 <source src="music.mp3">
 
 </audio>
 
 
-<div class="hero">
-
+<section class="hero">
 
 <video autoplay muted loop playsinline>
 
@@ -28,23 +28,26 @@
 
 </video>
 
+<div class="overlay">
 
-<div class="hero-title">
-
-Happy Birthday Princess
-
-</div>
-
+Happy Birthday ❤️
 
 </div>
 
-
-<div class="section">
+</section>
 
 
 <div class="card">
 
-You are my favorite person alive.
+<p>
+
+You changed everything.
+
+You made my life brighter.
+
+And today is yours.
+
+</p>
 
 </div>
 
@@ -60,16 +63,19 @@ You are my favorite person alive.
 </div>
 
 
-<a href="game.html" class="btn">
+<a href="game.html" class="button">
 
-Unlock Surprise
+Play Game 🎮
 
 </a>
 
 
-</div>
+<script>
+
+document.getElementById("music").play();
+
+</script>
 
 
 </body>
-
 </html>
