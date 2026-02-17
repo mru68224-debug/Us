@@ -1,24 +1,30 @@
 body{
 
-background:#fff5f5;
-text-align:center;
-font-family:Arial;
+background:#ffc1da;
 
-}
+display:flex;
 
+flex-direction:column;
 
-#gameArea{
+justify-content:center;
 
-height:400px;
-position:relative;
+align-items:center;
+
+height:100vh;
 
 }
 
 
 #heart{
 
+width:80px;
+
+height:80px;
+
+background:red;
+
+border-radius:50%;
+
 position:absolute;
-font-size:50px;
-cursor:pointer;
 
 }
