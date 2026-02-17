@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f11;
+  overflow-x: hidden;
+}
+
+/* CARD */
+.card {
+  max-width: 420px;
+  margin: 32px auto;
+  border-radius: 28px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(120deg, #ff6f91, #ff9eb5, #ffd1dd, #ff9eb5, #ff6f91);
+  background-size: 500% 500%;
+  animation: FLOW 12s linear infinite;
+  box-shadow: 0 18px 55px rgba(255,111,145,0.45);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,14,0.7);
+  backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* GRADIENT ANIMATION */
+@keyframes FLOW {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* FLOWER FRAME FOR PIC */
+.flower-frame {
+  position: relative;
+  padding: 12px; /* previous 4px, ab 12px for thicker frame */
+  border-radius: 28px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  background: url('flower-frame.png') no-repeat center/cover; /* flower frame image */
+}
+.frame-pic {
+  width: 100%;
+  display: block;
+  border-radius: 20px; /* slightly smaller than frame */
+}
+.frame-pic {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+}
+
+/* TEXT CARD INSIDE FLOWER FRAME */
+.frame-text {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.45);
+  padding: 12px 18px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  max-width: 90%;
+}
+
+/* MESSAGE CARD */
+.message-card {
+  padding: 24px 22px;
+  border-radius: 24px;
+  margin-top: 26px;
+  background: linear-gradient(120deg, rgba(255,158,181,0.35), rgba(255,111,145,0.25));
+  box-shadow: 0 14px 40px rgba(255,111,145,0.25);
+}
+
+.message-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f6f6f6;
+  letter-spacing: 0.3px;
+}
+
+/* AUTO MUSIC */
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="flower-frame">
+    <img src="us.jpg" alt="Us" class="frame-pic">
+    <div class="frame-text">
+      Together in this little universe, love never fades
+    </div>
+  </div>
+
+  <div class="message-card">
+    <p class="message-text">
+      No matter where we are,<br>
+      this space will always belong to us.<br><br>
+      Quiet, warm, and honest — just like you.
+    </p>
+  </div>
+</div>
+
+<audio id="bgMusic" preload="auto" loop autoplay>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+// try autoplay (browser may block)
+music.volume = 0.6;
+music.play().catch(()=>{});
+</script>
+
+</body>
+      </html>
+

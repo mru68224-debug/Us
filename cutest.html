@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cutest</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family:'Poppins', sans-serif;
+  background:#0f0f11;
+  color:#fff;
+  display:flex; justify-content:center; align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* CARD */
+.card {
+  background: rgba(20,20,25,0.85);
+  backdrop-filter: blur(8px);
+  border-radius:24px;
+  padding:26px 22px;
+  max-width:420px;
+  text-align:center;
+  box-shadow:0 12px 40px rgba(255,111,145,0.3);
+}
+
+/* FLOWER FRAME IMAGE */
+.flower-frame {
+  position: relative;
+  margin-bottom:22px;
+  border:6px solid transparent;
+  border-image: url('https://i.ibb.co/fFnGgNx/flower-frame.png') 30 stretch;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.flower-frame img {
+  width:100%;
+  display:block;
+  border-radius:12px;
+}
+
+/* TEXT */
+.subtitle {
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:22px;
+}
+
+/* POETIC LINES */
+.message-text {
+  font-size:16px;
+  line-height:1.6;
+  color:#ffe6ee;
+  letter-spacing:0.3px;
+}
+
+/* LINKS BUTTON STYLE */
+.card a {
+  display:block;
+  margin:12px 0;
+  padding:14px;
+  border-radius:24px;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
+  background: linear-gradient(135deg,#ff9eb5,#ff6f91);
+  box-shadow:0 6px 20px rgba(255,111,145,0.5);
+  transition:0.25s;
+}
+.card a:hover { transform:scale(1.03); }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="flower-frame">
+    <img src="her2.jpg" alt="Her">
+  </div>
+
+  <p class="subtitle">Cutest of all</p>
+
+  <p class="message-text">
+    Every glance of yours<br>
+    Makes my heart skip a beat.<br>
+    You are my joy, my softest calm,<br>
+    My world is brighter when you smile.
+  </p>
+
+  <a href="index.html">Back to Home</a>
+</div>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
