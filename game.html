@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Game</title>
@@ -10,13 +10,23 @@
 
 <div class="game-card">
 
-<h2>Catch My Heart</h2>
+<h1>Catch the Heart</h1>
 
-<p>Score 10 to unlock gift</p>
+<p>Score: <span id="score">0</span></p>
 
-<div id="gameArea"></div>
+<div id="gameArea">
 
-<p id="score">Score: 0</p>
+<div id="heart"></div>
+
+</div>
+
+<div id="win" class="hidden">
+
+<h2>You Won</h2>
+
+<a href="secret.html">Open Gift</a>
+
+</div>
 
 </div>
 

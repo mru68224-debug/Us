@@ -1,35 +1,29 @@
-let score=0;
+let heart=document.getElementById("heart")
 
-let area=document.getElementById("gameArea");
-
-function spawn(){
-
-let heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.style.left=Math.random()*260+"px";
-
-heart.style.top=Math.random()*360+"px";
+let score=0
 
 heart.onclick=function(){
 
-score++;
+score++
 
-document.getElementById("score").innerText="Score:"+score;
+document.getElementById("score").innerText=score
 
-heart.remove();
+move()
 
-if(score==10)
+if(score==10){
 
-location="secret.html";
-
-}
-
-area.appendChild(heart);
-
-setTimeout(()=>heart.remove(),1000);
+document.getElementById("win").classList.remove("hidden")
 
 }
 
-setInterval(spawn,800);
+}
+
+function move(){
+
+heart.style.top=Math.random()*500+"px"
+
+heart.style.left=Math.random()*300+"px"
+
+}
+
+move()

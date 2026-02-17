@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Birthday</title>
+<title>Happy Birthday</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="card">
+<div class="card full">
 
-<div class="flower-frame">
-<video src="hero.mp4" autoplay muted loop></video>
+<div class="video-box">
+
+<video autoplay muted loop>
+<source src="hero.mp4">
+</video>
+
 </div>
 
-<h2 class="title">
-This day changed everything
-</h2>
+<h1 class="title">Happy Birthday</h1>
 
 <p class="subtitle">
-So I built something for you
+This day exists because you do
 </p>
 
 <div class="buttons">
 
-<a href="secret.html">Memories</a>
-
 <a href="game.html">Play Game</a>
+
+<a href="secret.html">Memories</a>
 
 </div>
 
-<button class="music-btn" onclick="playMusic()">
+<button class="music" onclick="playMusic()">
 Play Music
 </button>
 
 </div>
 
 <audio id="music" loop>
+
 <source src="music.mp3">
+
 </audio>
 
 <script src="script.js"></script>

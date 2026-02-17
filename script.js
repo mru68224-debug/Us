@@ -1,19 +1,21 @@
-function checkPass(){
+function checkPassword(){
 
-let p=document.getElementById("pass").value;
+let pass="1234"
 
-if(p=="hername")
+let input=document.getElementById("pass").value
 
-location="home.html";
+if(input===pass)
+
+location="home.html"
 
 else
 
-document.getElementById("error").innerText="Try harder baby";
+document.getElementById("error").innerText="Wrong"
 
 }
 
 function playMusic(){
 
-document.getElementById("music").play();
+document.getElementById("music").play()
 
 }
