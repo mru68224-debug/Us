@@ -1,29 +1,51 @@
-body {
-
-margin:0;
+body{
 
 background:black;
 
-overflow:hidden;
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
 
 }
 
-canvas {
+.game-card{
 
-display:block;
+text-align:center;
 
 }
 
-#score {
+#gameArea{
+
+width:300px;
+
+height:400px;
+
+background:#111;
+
+margin:20px auto;
+
+position:relative;
+
+}
+
+.heart{
+
+width:40px;
+
+height:40px;
+
+background:red;
 
 position:absolute;
 
-top:20px;
+border-radius:50%;
 
-left:20px;
-
-color:white;
-
-font-size:24px;
+cursor:pointer;
 
 }

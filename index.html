@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday</title>
+<title>Enter</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="center">
 
-<div class="card">
+<div class="card password-card">
 
-<div class="flower-frame">
-<video src="hero.mp4" autoplay muted loop></video>
-</div>
+<h1>Happy Birthday</h1>
 
-<p class="subtitle">
-I made something for your birthday
-</p>
+<input type="password" id="pass" placeholder="Enter your name">
 
-<div class="buttons">
-<a href="home.html">Enter</a>
-</div>
+<button onclick="checkPass()">Enter</button>
+
+<p id="error"></p>
 
 </div>
+
+<script src="script.js"></script>
 
 </body>
-</html> 
+</html>

@@ -1,97 +1,35 @@
-let canvas=document.getElementById("gameCanvas");
-
-let ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-
-canvas.height=window.innerHeight;
-
-let basket={
-
-x:canvas.width/2,
-
-y:canvas.height-100,
-
-w:100,
-
-h:20
-
-};
-
-let hearts=[];
-
 let score=0;
 
-let speed=3;
-
-document.addEventListener("mousemove",e=>{
-
-basket.x=e.clientX;
-
-});
+let area=document.getElementById("gameArea");
 
 function spawn(){
 
-hearts.push({
+let heart=document.createElement("div");
 
-x:Math.random()*canvas.width,
+heart.className="heart";
 
-y:0,
+heart.style.left=Math.random()*260+"px";
 
-size:20
+heart.style.top=Math.random()*360+"px";
 
-});
-
-}
-
-setInterval(spawn,1000);
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="pink";
-
-ctx.fillRect(basket.x,basket.y,basket.w,basket.h);
-
-hearts.forEach((h,i)=>{
-
-h.y+=speed;
-
-ctx.beginPath();
-
-ctx.arc(h.x,h.y,h.size,0,Math.PI*2);
-
-ctx.fill();
-
-if(
-
-h.y>basket.y &&
-
-h.x>basket.x &&
-
-h.x<basket.x+basket.w
-
-){
-
-hearts.splice(i,1);
+heart.onclick=function(){
 
 score++;
 
-document.getElementById("score").innerText="Score: "+score;
+document.getElementById("score").innerText="Score:"+score;
+
+heart.remove();
+
+if(score==10)
+
+location="secret.html";
 
 }
 
-if(score>=10){
+area.appendChild(heart);
 
-window.location="secret.html";
-
-}
-
-});
-
-requestAnimationFrame(draw);
+setTimeout(()=>heart.remove(),1000);
 
 }
 
-draw();
+setInterval(spawn,800);
