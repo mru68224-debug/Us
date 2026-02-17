@@ -1,81 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<meta name="viewport" content="width=device-width">
-
-<link rel="stylesheet" href="style.css">
-
+<meta charset="UTF-8">
 <title>Home</title>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
-<audio id="music" loop>
-
-<source src="music.mp3">
-
-</audio>
-
-
-<section class="hero">
-
-<video autoplay muted loop playsinline>
-
-<source src="hero.mp4">
-
-</video>
-
-<div class="overlay">
-
-Happy Birthday ❤️
-
-</div>
-
-</section>
-
-
 <div class="card">
 
-<p>
+<div class="flower-frame">
+<video src="hero.mp4" autoplay muted loop></video>
+</div>
 
-You changed everything.
-
-You made my life brighter.
-
-And today is yours.
-
+<p class="subtitle">
+Happy Birthday ❤️  
+Play the game. Win your gift.
 </p>
 
-</div>
+<div class="buttons">
 
+<a href="game.html">Play Game</a>
 
-<div class="gallery">
-
-<img src="photo1.jpg">
-
-<img src="photo2.jpg">
-
-<img src="photo3.jpg">
+<a href="secret.html">Memories</a>
 
 </div>
 
+<button class="music-btn" onclick="playMusic()">
+Play Music
+</button>
 
-<a href="game.html" class="button">
+</div>
 
-Play Game 🎮
+<audio id="bgMusic" loop>
+<source src="music.mp3">
+</audio>
 
-</a>
-
-
-<script>
-
-document.getElementById("music").play();
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 </html>

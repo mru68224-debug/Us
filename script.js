@@ -1,13 +1,7 @@
-function unlock(){
+function playMusic(){
 
-let pass=document.getElementById("password").value;
+let music=document.getElementById("bgMusic");
 
-if(pass==="birthdaygirl")
-
-window.location="home.html";
-
-else
-
-document.getElementById("error").innerText="Try harder baby";
+music.play();
 
 }

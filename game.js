@@ -1,15 +1,97 @@
-let heart=document.getElementById("heart");
+let canvas=document.getElementById("gameCanvas");
 
-heart.onclick=function(){
+let ctx=canvas.getContext("2d");
 
-window.location="secret.html";
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+let basket={
+
+x:canvas.width/2,
+
+y:canvas.height-100,
+
+w:100,
+
+h:20
 
 };
 
-setInterval(()=>{
+let hearts=[];
 
-heart.style.top=Math.random()*80+"%";
+let score=0;
 
-heart.style.left=Math.random()*80+"%";
+let speed=3;
 
-},700);
+document.addEventListener("mousemove",e=>{
+
+basket.x=e.clientX;
+
+});
+
+function spawn(){
+
+hearts.push({
+
+x:Math.random()*canvas.width,
+
+y:0,
+
+size:20
+
+});
+
+}
+
+setInterval(spawn,1000);
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="pink";
+
+ctx.fillRect(basket.x,basket.y,basket.w,basket.h);
+
+hearts.forEach((h,i)=>{
+
+h.y+=speed;
+
+ctx.beginPath();
+
+ctx.arc(h.x,h.y,h.size,0,Math.PI*2);
+
+ctx.fill();
+
+if(
+
+h.y>basket.y &&
+
+h.x>basket.x &&
+
+h.x<basket.x+basket.w
+
+){
+
+hearts.splice(i,1);
+
+score++;
+
+document.getElementById("score").innerText="Score: "+score;
+
+}
+
+if(score>=10){
+
+window.location="secret.html";
+
+}
+
+});
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
