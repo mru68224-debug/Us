@@ -63,3 +63,10 @@ font-weight:600;
 #presentBtn:hover{
 background:#ff6f91;
 }
+
+.luxury-title{
+font-family: 'Cinzel', serif;
+font-size: 34px;
+letter-spacing: 2px;
+}
+
