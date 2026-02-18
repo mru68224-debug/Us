@@ -9,8 +9,8 @@ html, body { width:100%; min-height:100%; font-family:'Poppins',sans-serif; back
 
 /* floating kisses */
 #lockScreen::before, #lockScreen::after { position:absolute; left:50%; font-size:2rem; opacity:0.6; pointer-events:none; transform:translateX(-50%); }
-#lockScreen::before { content:"💋 💋 💋 💋 💋 💋 💋 💋"; top:20px; animation: floatLips 8s linear infinite; }
-#lockScreen::after { content:"💋 💋 💋 💋 💋 💋 💋 💋"; bottom:30px; animation: floatLipsReverse 12s linear infinite; }
+#lockScreen::before { content:"👅 👅 👅 👅 👅 👅 👅 👅"; top:20px; animation: floatLips 8s linear infinite; }
+#lockScreen::after { content:"💗 🩷 💝 💖 💓 💞 💕 ♥️"; bottom:30px; animation: floatLipsReverse 12s linear infinite; }
 @keyframes floatLips { 0%{transform:translateX(-50%) translateY(0) rotate(0deg);} 50%{transform:translateX(-60%) translateY(-10px) rotate(15deg);} 100%{transform:translateX(-50%) translateY(0) rotate(0deg);} }
 @keyframes floatLipsReverse { 0%{transform:translateX(-50%) translateY(0) rotate(0deg);} 50%{transform:translateX(-40%) translateY(10px) rotate(-15deg);} 100%{transform:translateX(-50%) translateY(0) rotate(0deg);} }
 
@@ -69,4 +69,5 @@ font-family: 'Cinzel', serif;
 font-size: 34px;
 letter-spacing: 2px;
 }
+
 
