@@ -48,3 +48,18 @@ html, body { width:100%; min-height:100%; font-family:'Poppins',sans-serif; back
 /* MESSAGE CARD */
 .message-card{ padding:24px 22px; border-radius:24px; margin-top:26px; background:linear-gradient(120deg, rgba(255,158,181,0.35), rgba(255,111,145,0.25)); box-shadow:0 14px 40px rgba(255,111,145,0.25); }
 .message-text{ font-size:16px; line-height:1.6; color:#f6f6f6; letter-spacing:0.3px; }
+
+#presentBtn{
+display:none;
+margin-top:20px;
+padding:14px;
+border-radius:22px;
+background:#ff9eb5;
+color:#111;
+text-decoration:none;
+font-weight:600;
+}
+
+#presentBtn:hover{
+background:#ff6f91;
+}
